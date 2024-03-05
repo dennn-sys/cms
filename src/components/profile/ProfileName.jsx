@@ -65,7 +65,6 @@ export default function ProfileName() {
     toggleEdit(field);
   };
 
-  console.log("ProfileName rendered");
   return (
     <div className=" flex-grow text-center lg:mr-4 lg:justify-end lg:text-left">
       <div className="relative w-full">
@@ -78,7 +77,6 @@ export default function ProfileName() {
             className=" ml-4 text-lg"
             disabled={editName || editTitle}
             onClick={() => {
-              console.log("edit name");
               toggleEdit("name");
             }}
           >
@@ -92,7 +90,6 @@ export default function ProfileName() {
           max={22}
           onChange={(e) => {
             nameRef.current = e.target.value;
-            console.log(nameRef.current);
           }}
           accept={() => updateField("name")}
           cancel={() => toggleEdit("name")}
@@ -105,7 +102,6 @@ export default function ProfileName() {
             className=" ml-4 text-lg"
             disabled={editName || editTitle}
             onClick={() => {
-              console.log("edit title");
               toggleEdit("title");
             }}
           >
@@ -119,7 +115,6 @@ export default function ProfileName() {
           max={50}
           onChange={(e) => {
             titleRef.current = e.target.value;
-            console.log(titleRef.current);
           }}
           accept={() => updateField("title")}
           cancel={() => toggleEdit("title")}

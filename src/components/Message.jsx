@@ -1,11 +1,12 @@
 import { useRef } from "react";
-
+import { IoSend } from "react-icons/io5";
 import PostHeader from "./ui/PostHeader";
 import { defaultAvatar } from "../assets";
-import { IoSend } from "react-icons/io5";
+import { formattedDate } from "../lib/utils";
 
 export default function Message() {
   const messageRef = useRef("");
+  const date = formattedDate();
 
   function sendMessage(e) {
     e.preventDefault();
@@ -18,17 +19,11 @@ export default function Message() {
     alert("thank you for sending a message.");
   }
 
-  const currentDate = new Date();
-  const month = currentDate.toLocaleString("default", { month: "short" });
-  const day = currentDate.getDate();
-  const year = currentDate.getFullYear();
-  const formattedDate = `${month} ${day}, ${year}`;
-
   return (
     <div id="message" className="space-y-5">
       <div className="rounded-lg bg-background text-foreground shadow-md">
         <div className="space-y-2 p-4">
-          <PostHeader title="Rodenmhar A. Ismael" date={formattedDate} />
+          <PostHeader title="Rodenmhar A. Ismael" date={date} />
           <p className="text-pretty pb-2">
             Please feel free to reach out to me.
           </p>

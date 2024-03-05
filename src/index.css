@@ -70,6 +70,14 @@ body {
   .form-btn {
     @apply flex h-9 w-full items-center justify-center rounded-md bg-[--blue] text-white;
   }
+
+  .edit-input {
+    @apply h-8 flex-grow rounded px-2 outline outline-2 outline-[--blue];
+  }
+
+  .edit-textarea {
+    @apply flex-grow resize-none rounded-md p-2 outline outline-2 outline-[--blue];
+  }
 }
 
 @media screen and (max-width: 1079px) {

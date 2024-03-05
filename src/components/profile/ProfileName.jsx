@@ -2,12 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 
 import { BsPatchCheckFill } from "react-icons/bs";
-import { LuCheck, LuPencil, LuX } from "react-icons/lu";
 import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 
-import Spinner from "../ui/Spinner";
 import { cn } from "../../lib/utils";
 import { db } from "../../config/firebase";
+import { EditButton, CheckButton, XButton } from "../ui/Buttons";
 
 export default function ProfileName() {
   const [name, setName] = useState("My name is...");
@@ -73,15 +72,13 @@ export default function ProfileName() {
             {name}
           </h1>
           <BsPatchCheckFill className="relative top-[-4px] inline text-[--blue]" />
-          <button
-            className=" ml-4 text-lg"
+          <EditButton
+            className="ml-4"
             disabled={editName || editTitle}
             onClick={() => {
               toggleEdit("name");
             }}
-          >
-            <LuPencil />
-          </button>
+          />
         </div>
         <InputField
           visibility={editName}
@@ -98,15 +95,13 @@ export default function ProfileName() {
       <div className="relative w-full">
         <div className={editTitle ? "invisible" : "visible"}>
           <span className="">{title}</span>
-          <button
-            className=" ml-4 text-lg"
+          <EditButton
+            className="ml-4"
             disabled={editName || editTitle}
             onClick={() => {
               toggleEdit("title");
             }}
-          >
-            <LuPencil />
-          </button>
+          />
         </div>
         <InputField
           visibility={editTitle}
@@ -142,30 +137,14 @@ const InputField = ({
     >
       <input
         type="text"
-        className="h-8 flex-grow rounded px-2 outline outline-2 outline-blue-500"
+        className="edit-input"
         placeholder={placeholder}
         maxLength={max}
         disabled={isLoading}
         onChange={onChange}
       />
-      <button
-        className="grid size-8 place-items-center rounded-full text-[--blue]"
-        disabled={isLoading}
-        onClick={accept}
-      >
-        {isLoading ? (
-          <Spinner className="text-2xl" />
-        ) : (
-          <LuCheck className="text-2xl" />
-        )}
-      </button>
-      <button
-        className="grid size-8 place-items-center rounded-full"
-        disabled={isLoading}
-        onClick={cancel}
-      >
-        <LuX className="text-2xl" />
-      </button>
+      <CheckButton disabled={isLoading} onClick={accept} />
+      <XButton disabled={isLoading} onClick={cancel} />
     </div>
   );
 };

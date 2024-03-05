@@ -1,4 +1,4 @@
-import PostHeader from "./PostHeader";
+import PostHeader from "./ui/PostHeader";
 import { FcLike } from "react-icons/fc";
 
 export default function Skills() {

@@ -16,7 +16,7 @@ function App() {
   return (
     <div
       className={cn(
-        "flex w-screen flex-col items-center bg-muted",
+        "flex w-full flex-col items-center bg-muted",
         isDark && "dark",
       )}
     >
@@ -25,9 +25,8 @@ function App() {
         <Login />
       ) : (
         <>
-          {/* <Topbar /> */}
           <Header />
-          <div className="sticky top-0 flex w-full justify-center bg-background shadow-md">
+          <div className="sticky top-0 z-10 flex w-full justify-center bg-background shadow-md">
             <div className="w-full max-w-[1302px] px-5">
               <Navbar />
             </div>

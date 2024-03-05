@@ -1,5 +1,5 @@
 import { FcLike } from "react-icons/fc";
-import PostHeader from "./PostHeader";
+import PostHeader from "../ui/PostHeader";
 
 export default function ProjectCard({ title, date, post, image, stack }) {
   return (

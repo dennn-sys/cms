@@ -3,5 +3,5 @@ import { defaultAvatar } from "../assets";
 
 export const useStore = create((set) => ({
   avatar: defaultAvatar,
-  updateAvatar: (newAvatar) => set({ avatar: newAvatar }),
+  setAvatar: (newAvatar) => set({ avatar: newAvatar }),
 }));

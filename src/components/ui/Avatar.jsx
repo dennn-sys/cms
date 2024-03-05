@@ -1,14 +1,15 @@
-import React from "react";
-import { cn } from "../lib/utils";
-import { useStore } from "../store/useStore";
+/* eslint-disable react/prop-types */
 
-export default function ProfilePhoto({ variant }) {
+import { cn } from "../../lib/utils";
+import { useStore } from "../../store/useStore";
+
+export default function Avatar({ variant }) {
   const avatar = useStore((state) => state.avatar);
 
   let style;
 
   if (variant === "main") {
-    style = "size-[180px] ring-[10px] ring-background";
+    style = "size-[180px] ring-[6px] ring-background";
   } else if (variant === "post") {
     style = "size-[42px]";
   }
@@ -16,7 +17,7 @@ export default function ProfilePhoto({ variant }) {
   return (
     <div
       className={cn(
-        "overflow-clip rounded-full bg-background text-center",
+        "overflow-clip rounded-full bg-blue-300 text-center",
         style,
       )}
     >

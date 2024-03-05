@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from "../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 
-import PostHeader from "./PostHeader";
+import PostHeader from "./ui/PostHeader";
 import { FcLike } from "react-icons/fc";
 
 const defaultData = {

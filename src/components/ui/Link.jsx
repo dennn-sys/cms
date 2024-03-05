@@ -1,4 +1,5 @@
-import { cn } from "../lib/utils";
+/* eslint-disable react/prop-types */
+import { cn } from "../../lib/utils";
 
 export const Link = ({ className, children, ...rest }) => {
   return (

@@ -3,9 +3,8 @@ import { db } from "../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { useStore } from "../store/useStore";
 
-// import Topbar from "./Topbar";
-import CoverPhoto from "./CoverPhoto";
-import Profile from "./Profile";
+import CoverPhoto from "../components/profile/CoverPhoto";
+import Profile from "../components/profile/Profile";
 
 const defaultData = {
   cover: "",
@@ -17,19 +16,23 @@ const defaultData = {
 export default function Header() {
   const [profileData, setProfileData] = useState(defaultData);
   const profile = collection(db, "profile");
+  const id = profileData.id;
   const cover = profileData.cover;
   const name = profileData.name;
   const resume = profileData.resume;
   const title = profileData.title;
 
-  const updateAvatar = useStore((state) => state.updateAvatar);
+  const setAvatar = useStore((state) => state.setAvatar);
 
   async function getProfile() {
     try {
       const data = await getDocs(profile);
-      const dataObject = data.docs.map((doc) => ({ ...doc.data() }));
+      const dataObject = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
       setProfileData(dataObject[0]);
-      updateAvatar(dataObject[0].avatar);
+      setAvatar(dataObject[0].avatar);
     } catch (error) {
       alert("Failed to fetch data. Please try again later.");
     }
@@ -42,10 +45,9 @@ export default function Header() {
   return (
     <div className="flex h-fit w-full justify-center bg-background ">
       <div className="flex h-fit max-w-[1366px] flex-grow flex-col items-center">
-        {/* <Topbar /> */}
-        <CoverPhoto cover={cover} />
+        <CoverPhoto />
         <div className="w-full max-w-[1302px] px-5">
-          <Profile name={name} resume={resume} title={title} />
+          <Profile resume={resume} />
         </div>
       </div>
     </div>

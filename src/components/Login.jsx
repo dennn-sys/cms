@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
-import Spinner from "./Spinner";
+import Spinner from "./ui/Spinner";
 
 export default function Login() {
   const loadingRef = useRef(false);
@@ -27,7 +27,6 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       reset();
-      //   window.location.reload(false);
     } catch (e) {
       alert("login failed");
       console.log(e);
@@ -37,7 +36,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-3.5rem)] w-full items-center justify-center px-4">
+    <div className="flex h-[calc(100vh-2.5rem)] w-full items-center justify-center px-4 text-foreground lg:h-[calc(100vh-3.5rem)]">
       <div className="relative bottom-16 h-[300px] w-full max-w-[500px]">
         <h1 className="py-8 text-center text-2xl font-semibold">Login</h1>
         <form onSubmit={handleSubmit(onLogin)} className="space-y-8">
@@ -69,7 +68,7 @@ export default function Login() {
             className="form-btn"
             disabled={isLoading ? true : false}
           >
-            {isLoading ? <Spinner className="animate-spin" /> : "Login"}
+            {isLoading ? <Spinner /> : "Login"}
           </button>
         </form>
       </div>

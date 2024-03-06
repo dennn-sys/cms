@@ -20,7 +20,7 @@ export default function Topbar() {
   };
 
   return (
-    <div className="z-20 flex h-10 w-full justify-center bg-background text-foreground shadow-md lg:h-14">
+    <div className="flex h-10 w-full justify-center bg-background text-foreground shadow-md lg:h-14">
       <div className="flex w-full max-w-[2560px] items-center justify-between px-4">
         <div className=" flex size-[30px] items-center justify-center">
           <a

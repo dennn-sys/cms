@@ -26,14 +26,15 @@ function App() {
       ) : (
         <>
           <Header />
-          <div className="sticky top-0 z-10 flex w-full justify-center bg-background shadow-md">
-            <div className="w-full max-w-[1302px] px-5">
-              <Navbar />
-            </div>
-          </div>
-          <div className="flex w-full max-w-[1302px] flex-col items-center gap-5 p-5 lg:flex-row lg:items-start">
+
+          <div className="order-2 flex w-full max-w-[1302px] flex-col items-center gap-5 p-5 lg:flex-row lg:items-start">
             <Aside />
             <MainContent />
+          </div>
+          <div className="sticky top-0 order-1 flex w-full justify-center bg-background shadow-md">
+            <div className=" w-full max-w-[1302px] px-5">
+              <Navbar />
+            </div>
           </div>
         </>
       )}

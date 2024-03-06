@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FcLike } from "react-icons/fc";
 import PostHeader from "../ui/PostHeader";
 

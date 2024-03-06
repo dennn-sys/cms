@@ -56,7 +56,7 @@ export default function Login() {
             <p>Password</p>
             <input
               type="password"
-              placeholder="123456"
+              placeholder="password"
               className="form-input"
               disabled={isLoading ? true : false}
               {...register("password")}

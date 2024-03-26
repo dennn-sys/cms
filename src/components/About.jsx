@@ -75,6 +75,7 @@ export default function About() {
       setContent(contentValue);
       setHashtag(hashtagValue);
       setDate(dateValue);
+      alert("About has been updated successfully.");
     } catch (error) {
       alert(error);
     }
@@ -93,42 +94,47 @@ export default function About() {
           disabled={onEdit}
           onClick={toggleEdit}
         />
-        <div className={cn("hidden items-center space-x-4", onEdit && "flex")}>
-          <CheckButton disabled={isLoading} onClick={updateAbout} />
-          <XButton disabled={isLoading} onClick={toggleEdit} />
-        </div>
       </div>
       <div className="rounded-lg bg-background text-foreground shadow-md">
         <div className="project-header space-y-2 p-4">
           <PostHeader title="Rodenmhar A. Ismael" date={date} />
-          <p className={cn("text-pretty", onEdit && "hidden")}>{content}</p>
-          <textarea
-            ref={textareaRef}
-            cols="30"
-            rows="10"
-            placeholder={content}
-            disabled={isLoading}
-            className={cn("edit-textarea hidden w-full", onEdit && "block")}
-            onChange={(e) => {
-              contentRef.current = e.target.value;
-            }}
-          />
-        </div>
-        <div className="project-footer flex items-start gap-3 p-4">
-          <FcLike className="text-2xl" />
-          <p className={cn("text-muted-foreground", onEdit && "hidden")}>
-            {hashtag}
-          </p>
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder={hashtag}
-            disabled={isLoading}
-            className={cn("edit-input hidden h-6 w-full", onEdit && "block")}
-            onChange={(e) => {
-              hashtagRef.current = e.target.value;
-            }}
-          />
+          <div className={cn("space-y-2", onEdit ? "hidden" : "")}>
+            <p className="text-pretty">{content}</p>
+            <div className="project-footer flex items-start gap-3 pt-6">
+              <FcLike className="text-2xl" />
+              <p className="text-muted-foreground">{hashtag}</p>
+            </div>
+          </div>
+          <div className={cn("space-y-8", onEdit ? "" : "hidden")}>
+            <textarea
+              ref={textareaRef}
+              cols="30"
+              rows="10"
+              placeholder={content}
+              disabled={isLoading}
+              className="edit-textarea w-full"
+              onChange={(e) => {
+                contentRef.current = e.target.value;
+              }}
+            />
+            <div className="project-footer flex items-center gap-3">
+              <FcLike className="text-2xl" />
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder={hashtag}
+                disabled={isLoading}
+                className="edit-input w-full"
+                onChange={(e) => {
+                  hashtagRef.current = e.target.value;
+                }}
+              />
+            </div>
+            <div className="flex items-center justify-end space-x-4">
+              <CheckButton disabled={isLoading} onClick={updateAbout} />
+              <XButton disabled={isLoading} onClick={toggleEdit} />
+            </div>
+          </div>
         </div>
       </div>
     </div>

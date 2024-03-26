@@ -12,7 +12,7 @@ import Login from "./components/Login";
 function App() {
   const [user] = useAuthState(auth);
   const isDark = false;
-  console.log("App Component rendered");
+
   return (
     <div
       className={cn(

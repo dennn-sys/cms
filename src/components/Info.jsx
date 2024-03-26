@@ -118,22 +118,24 @@ export default function Info() {
       <div className="flex items-center justify-between">
         <h2 className=" text-xl font-bold">Info</h2>
         <EditButton
-          className={onEdit && "hidden"}
+          className={onEdit ? "hidden" : ""}
           disabled={onEdit}
           onClick={toggleEdit}
         />
-        <div className={cn("hidden items-center space-x-4", onEdit && "flex")}>
+        <div
+          className={cn("items-center space-x-4", onEdit ? "flex" : "hidden")}
+        >
           <CheckButton disabled={isLoading} onClick={updateInfo} />
           <XButton disabled={isLoading} onClick={toggleEdit} />
         </div>
       </div>
-      <p className={cn(" text-center", onEdit && "hidden")}>{tagline}</p>
+      <p className={cn("text-center", onEdit ? "hidden" : "")}>{tagline}</p>
       <input
         ref={inputRefA}
         type="text"
         placeholder={tagline}
         disabled={isLoading}
-        className={cn("edit-input hidden h-6 w-full", onEdit && "block")}
+        className={cn("edit-input h-6 w-full", onEdit ? "block" : "hidden")}
         onChange={(e) => {
           taglineRef.current = e.target.value;
         }}
@@ -141,13 +143,13 @@ export default function Info() {
       <hr className="pt-2" />
       <div className="flex items-center gap-3 pt-2">
         <LuGraduationCap className="text-2xl text-muted-foreground" />
-        <span className={onEdit && "hidden"}>Studied at {school}</span>
+        <span className={onEdit ? "hidden" : ""}>Studied at {school}</span>
         <input
           ref={inputRefB}
           type="text"
           placeholder={school}
           disabled={isLoading}
-          className={cn("edit-input hidden h-6", onEdit && "block")}
+          className={cn("edit-input h-6", onEdit ? "block" : "hidden")}
           onChange={(e) => {
             schoolRef.current = e.target.value;
           }}
@@ -155,13 +157,13 @@ export default function Info() {
       </div>
       <div className="flex items-center gap-3">
         <LuHome className="text-2xl text-muted-foreground" />
-        <span className={onEdit && "hidden"}>Lives in {address}</span>
+        <span className={onEdit ? "hidden" : ""}>Lives in {address}</span>
         <input
           ref={inputRefC}
           type="text"
           placeholder={address}
           disabled={isLoading}
-          className={cn("edit-input hidden h-6", onEdit && "block")}
+          className={cn("edit-input h-6", onEdit ? "block" : "hidden")}
           onChange={(e) => {
             addressRef.current = e.target.value;
           }}
@@ -169,13 +171,13 @@ export default function Info() {
       </div>
       <div className="flex items-center gap-3">
         <LuPhone className="text-2xl text-muted-foreground" />
-        <span className={onEdit && "hidden"}>{contact}</span>
+        <span className={onEdit ? "hidden" : ""}>{contact}</span>
         <input
           ref={inputRefD}
           type="text"
           placeholder={contact}
           disabled={isLoading}
-          className={cn("edit-input hidden h-6", onEdit && "block")}
+          className={cn("edit-input h-6", onEdit ? "block" : "hidden")}
           onChange={(e) => {
             contactRef.current = e.target.value;
           }}
@@ -183,13 +185,13 @@ export default function Info() {
       </div>
       <div className="flex items-center gap-3">
         <LuMail className="text-2xl text-muted-foreground" />
-        <span className={onEdit && "hidden"}>{email}</span>
+        <span className={onEdit ? "hidden" : ""}>{email}</span>
         <input
           ref={inputRefE}
           type="text"
           placeholder={email}
           disabled={isLoading}
-          className={cn("edit-input hidden h-6", onEdit && "block")}
+          className={cn("edit-input h-6", onEdit ? "block" : "hidden")}
           onChange={(e) => {
             emailRef.current = e.target.value;
           }}

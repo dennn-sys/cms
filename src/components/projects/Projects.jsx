@@ -264,7 +264,7 @@ export default function Projects() {
             image={project.image}
             stack={project.stack}
           />
-          <div className="absolute right-4 top-4 flex gap-4">
+          <div className="absolute right-4 top-4 flex gap-4 text-foreground">
             <EditButton
               disabled={isLoading}
               onClick={() => {

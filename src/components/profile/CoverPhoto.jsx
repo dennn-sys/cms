@@ -77,7 +77,7 @@ export default function CoverPhoto() {
       <div className="absolute bottom-4 flex w-full justify-end px-4">
         <label
           htmlFor="cover-photo"
-          className="flex size-10 items-center justify-center rounded-full bg-muted text-2xl"
+          className="flex size-10 items-center justify-center rounded-full bg-input text-2xl"
           disabled={isLoading}
         >
           {isLoading ? <Spinner /> : <LuCamera />}

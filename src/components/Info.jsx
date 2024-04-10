@@ -129,7 +129,9 @@ export default function Info() {
           <XButton disabled={isLoading} onClick={toggleEdit} />
         </div>
       </div>
-      <p className={cn("text-center", onEdit ? "hidden" : "")}>{tagline}</p>
+      <p className={cn("pb-2 text-center", onEdit ? "hidden" : "")}>
+        {tagline}
+      </p>
       <input
         ref={inputRefA}
         type="text"
@@ -140,7 +142,7 @@ export default function Info() {
           taglineRef.current = e.target.value;
         }}
       />
-      <hr className="pt-2" />
+      <hr className="border-input" />
       <div className="flex items-center gap-3 pt-2">
         <LuGraduationCap className="text-2xl text-muted-foreground" />
         <span className={onEdit ? "hidden" : ""}>Studied at {school}</span>

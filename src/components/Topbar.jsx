@@ -5,12 +5,16 @@ import { signOut } from "firebase/auth";
 
 import { FaGithub } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { logo } from "../assets";
 import { cn } from "../lib/utils";
+import { useStore } from "../store/useStore";
 
 export default function Topbar() {
   const [user] = useAuthState(auth);
   const userRef = useRef(false);
+  const darkmode = useStore((state) => state.darkmode);
+  const toggleDarkmode = useStore((state) => state.toggleDarkmode);
 
   userRef.current = user ? true : false;
 
@@ -36,12 +40,19 @@ export default function Topbar() {
           <button
             onClick={logout}
             className={cn(
-              "form-btn gap-2 bg-muted px-2 text-muted-foreground",
+              "form-btn gap-2 bg-input px-2 text-muted-foreground",
               userRef.current ? "flex" : "hidden",
             )}
           >
             <LuLogOut />
             <span>Logout</span>
+          </button>
+          <button onClick={toggleDarkmode}>
+            {darkmode ? (
+              <MdLightMode className="text-3xl" />
+            ) : (
+              <MdDarkMode className="text-3xl" />
+            )}
           </button>
           <a
             href="https://github.com/dennn-sys"

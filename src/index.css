@@ -29,14 +29,14 @@ body {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --input: 216 20% 95.1%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
     --blue: hsl(217.17, 100%, 51.57%);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 210 2.7% 14.51%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -46,14 +46,14 @@ body {
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 210 4% 9.8%;
     --muted-foreground: 215 20.2% 65.1%;
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --input: 210 1.69% 23.14%;
     --ring: 224.3 76.3% 48%;
   }
 }
@@ -72,11 +72,11 @@ body {
   }
 
   .edit-input {
-    @apply h-8 flex-grow rounded px-2 outline outline-2 outline-[--blue];
+    @apply h-8 flex-grow rounded bg-input px-2 outline outline-2 outline-[--blue];
   }
 
   .edit-textarea {
-    @apply flex-grow resize-none rounded-md p-2 outline outline-2 outline-[--blue];
+    @apply flex-grow resize-none rounded-md bg-input p-2 outline outline-2 outline-[--blue];
   }
 }
 

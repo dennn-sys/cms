@@ -1,5 +1,6 @@
 import { auth } from "./config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useStore } from "./store/useStore";
 
 import { cn } from "./lib/utils";
 import Topbar from "./components/Topbar";
@@ -11,13 +12,13 @@ import Login from "./components/Login";
 
 function App() {
   const [user] = useAuthState(auth);
-  const isDark = false;
+  const darkmode = useStore((state) => state.darkmode);
 
   return (
     <div
       className={cn(
         "flex w-full flex-col items-center bg-muted",
-        isDark && "dark",
+        darkmode && "dark",
       )}
     >
       <Topbar />

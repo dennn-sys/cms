@@ -76,7 +76,7 @@ export default function Resume() {
     <div className="flex min-w-[262px] flex-grow items-end justify-center gap-4 lg:justify-end">
       <Link
         className={cn(
-          "bg-muted text-muted-foreground",
+          "bg-input text-muted-foreground",
           isLoading && "pointer-events-none",
         )}
         href={resume}

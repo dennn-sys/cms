@@ -76,7 +76,7 @@ export default function ProfilePhoto() {
       <div className="absolute bottom-2 right-2 flex w-full justify-end">
         <label
           htmlFor="profile-pic"
-          className="flex size-10 items-center justify-center rounded-full bg-muted text-2xl"
+          className="flex size-10 items-center justify-center rounded-full bg-input text-2xl"
           disabled={isLoading}
         >
           {isLoading ? <Spinner /> : <LuCamera />}

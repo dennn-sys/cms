@@ -43,7 +43,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="flex h-fit w-full justify-center bg-background ">
+    <div className="flex h-fit w-full justify-center bg-background text-foreground ">
       <div className="flex h-fit max-w-[1366px] flex-grow flex-col items-center">
         <CoverPhoto />
         <div className="w-full max-w-[1302px] px-5">

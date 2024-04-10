@@ -27,13 +27,13 @@ export default function Message() {
           <p className="text-pretty pb-2">
             Please feel free to reach out to me.
           </p>
-          <hr className="bg-muted" />
+          <hr className="border-input" />
         </div>
         <div className="flex items-start gap-3 p-4">
           <div className="size-[32px] overflow-clip rounded-full">
             <img src={defaultAvatar} alt="avatar" />
           </div>
-          <div className="flex w-full flex-col gap-2 overflow-clip rounded-lg bg-muted p-4">
+          <div className="flex w-full flex-col gap-2 overflow-clip rounded-lg bg-input p-4">
             <textarea
               id="message-textarea"
               onChange={(e) => {

@@ -94,7 +94,7 @@ export default function ProfileName() {
       </div>
       <div className="relative w-full">
         <div className={editTitle ? "invisible" : "visible"}>
-          <span className="">{title}</span>
+          <span className="text-foreground">{title}</span>
           <EditButton
             className="ml-4"
             disabled={editName || editTitle}
